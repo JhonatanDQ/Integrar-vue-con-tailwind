@@ -1,5 +1,5 @@
-<script setup>
 
+<script setup>
 const borrarTarjeta = (index) => {
     console.log("borrar Tarjeta" , index)
     emit('borrarTarjeta', index)
@@ -23,6 +23,12 @@ const props = defineProps(
   }
 )
 
+const modificarTarjeta = (index) => {
+    console.log("Modificar Tarjeta" , index) 
+    emit ('modificarTarjeta' , index)
+       
+}
+
 </script>
 
 <template>
@@ -35,8 +41,14 @@ const props = defineProps(
         <h2 class="text-sm font-semibold">{{ props.name }}</h2>
         <p class="text-xs">{{ props.mail }}</p>
    </div>
+   <div class="flex justify-center">
    <span class="inline-block ml-4 bg-red-400 text-white rounded leading-0 py-0 px-2 hover:cursor-pointer hover:bg-red-600" @click="borrarTarjeta(props.index)">
        x
    </span>
+
+   <span class="inline-block ml-4 bg-yellow-400 text-white rounded leading-0 py-0 px-2 hover:cursor-pointer hover:bg-red-600" @click="modificarTarjeta(props.index)">
+    📝
+  </span>
+  </div>
    </div> 
 </template>
